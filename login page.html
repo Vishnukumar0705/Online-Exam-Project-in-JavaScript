@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Test Login Page</title>
+    <link rel="stylesheet" type="text/css" href="login page.css" />
+</head>
+
+<body>
+    <!-- <img src="student-removebg-preview.png" class="image"/>
+    <div class="h1">
+    <h1 style="color: blue; font-weight: bolder;" >Student</h1>
+    <h1 style="margin-top: -0.8em;">Infotech</h1>
+    </div> -->
+    <div class="run">
+        <img src="student-removebg-preview.png" class="logo" />
+        <div class="h2">
+            <h2 style="color: blue; font-weight: bolder;">Student</h2>
+            <h2 style="margin-top: -0.8em; color: black;">Infotech</h2>
+        </div>
+        <h1 class="heading">Students Login</h1>
+        <div class="social">
+            <pre> Journey with us  | </pre>
+            <pre style="margin-left: 13em; margin-top: -2.1em;">Support Central   | </pre>
+        </div>
+        <img style="margin-left: 64.5em; " src="facebook.png" />
+        <img style="margin-left: 1em; border-radius: 50px; " src="insta.png" />
+        <img style="margin-left: 1em; border-radius: 50px; " src="twitter.png" />
+        <img style="margin-left: 1em; border-radius: 15px; " src="linkdin.png" />
+    </div>
+    <img src="motivation-removebg-preview.png" alt="vison" class="vision" />
+    <form action="Online Exam.html" onsubmit="return submitbtn()">
+        <div class="form">
+            <div class="group">
+                <input type="text" id="name" placeholder="student name" onfocusout="nameinput()" />
+                <label class="label">Student Name</label>
+                <p id="msg" class="error"></p>
+            </div>
+            <div class="group">
+                <input type="text" id="reg" placeholder="register number" onfocusout="reginput()">
+                <label class="label">Register Number</label>
+                <p id="msg2" class="error"></p>
+            </div>
+            <div class="group">
+                <input type="password" id="pass" placeholder="Password" onfocusout="passinput()">
+                <label class="label">Password</label>
+                <img class="eye" id="eye" onclick="passeye()" src="eye1.svg" />
+                <img class="eye" id="eye" onclick="passeye()" src="eye.svg" />
+                <p id="msg3" class="error"></p>
+            </div>
+        </div>
+        <input type="submit" value="Login" class="btn"  />
+    </form>
+    <div class="gif">
+    
+    </div>
+</body>
+<script>
+    var A=0;
+    function nameinput() {
+        var Name = document.getElementById("name").value
+        if (Name == "") {
+            document.getElementById("msg").innerHTML = "**Please Fill Your Name**"
+            A++;
+        }
+        else {
+            document.getElementById("msg").innerHTML = ""
+        }
+    }
+    function reginput() {
+        var Reg = document.getElementById("reg").value
+        if (Reg == "") {
+            document.getElementById("msg2").innerHTML = "**Please Fill Your Register Number**"
+            A++;
+        }
+        else {
+            document.getElementById("msg2").innerHTML = ""
+        }
+    }
+    function passinput() {
+        var Pass = document.getElementById("pass").value
+        if (Pass == "") {
+            document.getElementById("msg3").innerHTML = "**Please Fill Your Password**"
+            A++;
+        }
+        else {
+            if (Pass == 12345) {
+                document.getElementById("msg3").innerHTML = ""
+            }
+
+            else {
+                document.getElementById("msg3").innerHTML = "<span>**Enter the Correct Password**</span>"
+                A++;
+            }
+        }
+
+    }
+    var a;
+    function passeye() {
+        if (a == 1) {
+            document.getElementById("pass").type = 'password';
+            document.getElementById("eye").src = 'eye1.svg';
+            a = 0;
+        }
+        else {
+            document.getElementById("pass").type = 'text';
+            document.getElementById("eye").src = 'eye.svg';
+            a = 1;
+        }
+    }
+    function submitbtn() {
+        A=0;
+        var Name = document.getElementById("name").value
+        localStorage.setItem("Student Name", Name)
+        var Reg = document.getElementById("reg").value
+        localStorage.setItem("Registration", Reg)
+        nameinput();
+        reginput();
+        passinput();
+        if(A != 0){
+            return false
+        }
+
+
+    }
+</script>
+
+</html>
