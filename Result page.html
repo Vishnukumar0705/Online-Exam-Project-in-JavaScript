@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Your Result</title>
+    <link rel="stylesheet" type="text/css" href="Result page.css" />
+</head>
+
+<body>
+    <div class="header">
+        <img src="student-removebg-preview.png" class="logo" />
+        <div class="h2">
+            <h2 style="color: blue; font-weight: bolder;">Student</h2>
+            <h2 style="margin-top: -0.8em; color: black;">Infotech</h2>
+        </div>
+        <h1 class="heading">Result</h1>
+        <div class="social">
+            <pre> Journey with us  | </pre>
+            <pre style="margin-left: 13em; margin-top: -2.1em;">Support Central   | </pre>
+        </div>
+        <img style="margin-left: 62em; " src="facebook.png" />
+        <img style="margin-left: 1em; border-radius: 50px; " src="insta.png" />
+        <img style="margin-left: 1em; border-radius: 50px; " src="twitter.png" />
+        <img style="margin-left: 1em; border-radius: 15px; " src="linkdin.png" />
+    </div>
+    <div class="name">
+        <!-- <h1 style="font-size: 1.5em; color: blueviolet;">Student Name :</h1> -->
+        <h2 id="name" style="font-size: 1.5em; color: blueviolet;"></h2>
+    </div>
+    <h2 id="reg" class="reg" style=" font-size: 1.5em; color: rgb(43, 226, 83);"></h2>
+    <h2 id="score1" class="reg" style="margin-top: -0em; font-size: 1.5em; color: rgb(243, 59, 4);">
+    </h2>
+    <h3 id="sen" class="sentence"></h3>
+    <img id="emoji" class="emoji" />
+    <div class="score">
+        <h1 style="  text-shadow: 0 0 20px  rgb(60, 255, 0), 0 0 40px rgb(0, 255, 13);">Your Score</h1>
+        <h3 id="score" class="number"></h3>
+        <img id="dance" class="dance" />
+    </div>
+    <a href="login page.html"><input type="button" value="Logout" class="logout"></a>
+    <a href="Online Exam.html"><input type="button" id="try" value="Try Again" class="try" disabled /></a>
+</body>
+
+</html>
+<script>
+    A = localStorage.getItem("Student Name")
+    document.getElementById("name").innerHTML += "Student Name : " + A;
+    B = localStorage.getItem("Registration")
+    document.getElementById("reg").innerHTML += "Register No : " + B;
+    C = localStorage.getItem("Your Score")
+    
+    document.getElementById("score").innerHTML = C;
+    document.getElementById("score1").innerHTML += "Your Score   : " + C;
+
+    if (C == 0) {
+        document.getElementById("emoji").src = "sad.gif"
+        document.getElementById("sen").innerHTML = "<span class='better'>Better Luck Next Time</span>" + "<span class='entity'>&#128078</span>"
+        document.getElementById("dance").style = "display : none"
+        Tryagain();
+    }
+    if (C == 1) {
+        document.getElementById("emoji").src = "1point.gif"
+        document.getElementById("sen").innerHTML = "<span class='bad'>Bad</span>" + "<span class='entity'>&#129305</span>"
+        document.getElementById("dance").style = "display : none"
+        Tryagain();
+    }
+    if (C == 2) {
+        document.getElementById("emoji").src = "2point.gif"
+        document.getElementById("sen").innerHTML = "<span class='ave'>Average</span>" + "<span class='entity'>&#129295</span>"
+        document.getElementById("dance").style = "display : none"
+        Tryagain();
+    }
+    if (C == 3) {
+        document.getElementById("emoji").src = "3point.gif"
+        document.getElementById("sen").innerHTML = "<span class='good'>Good</span>" + "<span class='entity'>&#129309</span>"
+        document.getElementById("dance").style = "display : none"
+        Tryagain();
+    }
+    if (C == 4) {
+        document.getElementById("emoji").src = "4point.gif"
+        document.getElementById("sen").innerHTML = "<span class='very'>Very Good</span>" + "<span class='entity'>&#128076</span>"
+        document.getElementById("dance").style = "display : none"
+    }
+    if (C == 5) {
+        document.getElementById("emoji").src = "5point.gif"
+        document.getElementById("sen").innerHTML = "<span class='exc'>Excellent</span>" + "<span class='entity'>&#128079</span>"
+        document.getElementById("dance").src = "dancing.gif"
+        // const para= document.createElement("img")
+        // para.src= "dancing.gif"
+        // document.getElementById("dance").appendChild(para)
+    }
+    function Tryagain() {
+        var D = 3;
+        if (D >= C) {
+            document.getElementById("try").disabled = false
+        }
+    }
+
+</script>
